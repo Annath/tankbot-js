@@ -1,3 +1,7 @@
+# Mac and project files
+.DS_Store
+*.sublime-workspace
+
 node_modules/
 =======
 # Logs

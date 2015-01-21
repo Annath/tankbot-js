@@ -1,5 +1,5 @@
 var zetta = require('zetta');
-var MOTOR = require('devices/motor/index');
+var MOTOR = require('./devices/motor/index');
 
 zetta()
   .name('FirstName-LastName')

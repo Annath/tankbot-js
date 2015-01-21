@@ -22,7 +22,7 @@ Motor.prototype.init = function(config) {
 
     bone.pinMode(this.pins[0], bone.OUTPUT)
     bone.pinMode(this.pins[1], bone.OUTPUT)
-    this.stop();
+    this.stop(function() {});
 }
 
 Motor.prototype.stop = function(cb) {

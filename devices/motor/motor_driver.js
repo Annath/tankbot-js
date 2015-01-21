@@ -27,8 +27,9 @@ Motor.prototype.init = function(config) {
 
 Motor.prototype.stop = function(cb) {
     var self = this;
-    bone.digitalWrite(this.pins[0], 0, function() {
-        bone.digitalWrite(this.pins[1], 0, function() {
+    util.debug("Stopping...")
+    bone.digitalWrite(self.pins[0], 0, function() {
+        bone.digitalWrite(self.pins[1], 0, function() {
             self.state = 'stopped';
             self.speed = 0;
             cb();
@@ -47,8 +48,8 @@ Motor.prototype.setSpeed = function(speed, cb) {
             pinA = 1;
             pinB = 0;
         }
-        bone.digitalWrite(this.pins[pinA], 0, function() {
-            bone.analogWrite(this.pins[pinB], (1/abs(speed)), 2000, function() {
+        bone.digitalWrite(self.pins[pinA], 0, function() {
+            bone.analogWrite(self.pins[pinB], (1/abs(speed)), 2000, function() {
                 self.state = 'running';
                 self.speed = speed;
                 cb();

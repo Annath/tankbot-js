@@ -11,25 +11,25 @@ var Motor = module.exports = function(pins, invert) {
 util.inherits(Motor, Device);
 
 Motor.prototype.init = function(config) {
+    var self = this;
     config
         .state('stopped')
         .type('motor')
         .name('MOTOR')
         .when('stopped', { allow: [ 'set-speed' ] })
         .when('running', { allow: [ 'set-speed', 'stop' ] })
-        .map('stop', this.stop)
-        .map('set-speed', this.setSpeed, [ { name: 'speed', type: 'int' } ]);
+        .map('stop', self.stop)
+        .map('set-speed', self.setSpeed, [ { name: 'speed', type: 'number' } ])
+        .monitor('speed');
 
-    bone.pinMode(this.pins[0], bone.OUTPUT)
-    bone.pinMode(this.pins[1], bone.OUTPUT)
     this.stop(function() {});
 }
 
 Motor.prototype.stop = function(cb) {
     var self = this;
     util.debug("Stopping...")
-    bone.digitalWrite(self.pins[0], 0, function() {
-        bone.digitalWrite(self.pins[1], 0, function() {
+    bone.analogWrite(self.pins[0], 0, 2000, function() {
+        bone.analogWrite(self.pins[1], 0, 2000, function() {
             self.state = 'stopped';
             self.speed = 0;
             cb();
@@ -44,12 +44,15 @@ Motor.prototype.setSpeed = function(speed, cb) {
     if (speed == 0) {
         self.stop(cb);
     } else {
-        if (speed < 0 || self.invert) {
+        if ((speed < 0 && !self.invert) || (self.invert && speed > 0)) {
             pinA = 1;
             pinB = 0;
         }
-        bone.digitalWrite(self.pins[pinA], 0, function() {
-            bone.analogWrite(self.pins[pinB], (1/Math.abs(speed)), 2000, function() {
+        bone.analogWrite(self.pins[pinA], 0, 2000, function() {
+            util.debug("Stopped pin " + self.pins[pinA].toString())
+            bone.analogWrite(self.pins[pinB], (Math.abs(speed)/100), 2000, function() {
+
+                util.debug("Set pin " + self.pins[pinB].toString() + " to " + (1/Math.abs(speed)));
                 self.state = 'running';
                 self.speed = speed;
                 cb();

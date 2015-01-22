@@ -49,7 +49,7 @@ Motor.prototype.setSpeed = function(speed, cb) {
             pinB = 0;
         }
         bone.digitalWrite(self.pins[pinA], 0, function() {
-            bone.analogWrite(self.pins[pinB], (1/abs(speed)), 2000, function() {
+            bone.analogWrite(self.pins[pinB], (1/Math.abs(speed)), 2000, function() {
                 self.state = 'running';
                 self.speed = speed;
                 cb();

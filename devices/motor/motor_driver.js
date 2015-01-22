@@ -1,6 +1,6 @@
 var Device = require('zetta-device');
 var util = require('util');
-var bone = require('octalbonescript');
+var bone = require('bonescript');
 
 var Motor = module.exports = function(pins, invert) {
     Device.call(this);
@@ -20,8 +20,8 @@ Motor.prototype.init = function(config) {
         .map('stop', this.stop)
         .map('set-speed', this.setSpeed, [ { name: 'speed', type: 'int' } ]);
 
-    bone.pinMode(this.pins[0], bone.OUTPUT, function() {})
-    bone.pinMode(this.pins[1], bone.OUTPUT, function() {})
+    bone.pinMode(this.pins[0], bone.OUTPUT)
+    bone.pinMode(this.pins[1], bone.OUTPUT)
     this.stop(function() {});
 }
 

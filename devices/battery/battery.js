@@ -4,9 +4,10 @@ var bone = require('bonescript');
 
 var MAX_ADC_VOLTAGE = 1.8;
 
-var Battery = module.exports = function(pin, maxVoltage, divisor, interval) {
+var Battery = module.exports = function(pin, minVoltage, maxVoltage, divisor, interval) {
     Device.call(this);
     this.pin = pin || 'P9_40';
+    this.minVoltage = minVoltage || (9.0);
     this.maxVoltage = maxVoltage || (12.1);
     this.divisor = divisor || (10);
     this.interval = interval || 250;
@@ -36,7 +37,7 @@ Battery.prototype.init = function(config) {
             self.currentVoltage = adcVoltage * self.divisor;
             util.debug("Battery is at " + self.currentVoltage + " volts");
             
-            self.linearPercent = (self.currentVoltage / self.maxVoltage) * 100;
+            self.linearPercent = ((self.currentVoltage - self.minVoltage) / (self.maxVoltage - self.minVoltage)) * 100;
         });
 
     }, self.interval);

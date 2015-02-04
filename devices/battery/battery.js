@@ -4,13 +4,13 @@ var bone = require('bonescript');
 
 var MAX_ADC_VOLTAGE = 1.8;
 
-var Battery = module.exports = function(pin, minVoltage, maxVoltage, divisor, interval) {
+var Battery = module.exports = function(pin, conf) {
     Device.call(this);
     this.pin = pin || 'P9_40';
-    this.minVoltage = minVoltage || (9.0);
-    this.maxVoltage = maxVoltage || (12.1);
-    this.divisor = divisor || (10);
-    this.interval = interval || 250;
+    this.minVoltage = conf['minVoltage'] || (9.0);
+    this.maxVoltage = conf['maxVoltage'] || (12.1);
+    this.divisor = conf['divisor'] || (10);
+    this.interval = conf['interval'] || 250;
 }
 
 util.inherits(Battery, Device);

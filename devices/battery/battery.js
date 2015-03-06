@@ -30,12 +30,12 @@ Battery.prototype.init = function(config) {
                 return;
             }
 
-            util.debug("RAW " + raw.value);
+            // util.debug("RAW " + raw.value);
             var adcVoltage = (raw.value * MAX_ADC_VOLTAGE);
             util.debug("Read " + adcVoltage + " volts");
             
             self.currentVoltage = adcVoltage * self.divisor;
-            util.debug("Battery is at " + self.currentVoltage + " volts");
+            // util.debug("Battery is at " + self.currentVoltage + " volts");
             
             self.linearPercent = ((self.currentVoltage - self.minVoltage) / (self.maxVoltage - self.minVoltage)) * 100;
         });

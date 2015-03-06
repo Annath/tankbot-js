@@ -19,7 +19,7 @@ Motor.prototype.init = function(config) {
         .when('stopped', { allow: [ 'set-speed', 'set-inverted' ] })
         .when('running', { allow: [ 'set-speed', 'stop' ] })
         .map('stop', self.stop)
-        .map('set-inverted', self.setInverted, [ { name: 'inverted', type: 'boolean' } ])
+        .map('set-inverted', self.setInverted)
         .map('set-speed', self.setSpeed, [ { name: 'speed', type: 'number' } ])
         .monitor('speed');
 

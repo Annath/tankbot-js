@@ -16,9 +16,10 @@ Motor.prototype.init = function(config) {
         .state('stopped')
         .type('motor')
         .name('MOTOR')
-        .when('stopped', { allow: [ 'set-speed' ] })
+        .when('stopped', { allow: [ 'set-speed', 'set-inverted' ] })
         .when('running', { allow: [ 'set-speed', 'stop' ] })
         .map('stop', self.stop)
+        .map('set-inverted', self.setInverted, [ { name: 'inverted', type: 'boolean' } ])
         .map('set-speed', self.setSpeed, [ { name: 'speed', type: 'number' } ])
         .monitor('speed');
 
@@ -35,6 +36,12 @@ Motor.prototype.stop = function(cb) {
             cb();
         });
     });
+};
+
+Motor.prototype.setInverted = function(cb) {
+    var self = this;
+    self.invert = !self.invert;
+    cb();
 };
 
 Motor.prototype.setSpeed = function(speed, cb) {

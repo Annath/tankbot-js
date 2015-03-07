@@ -32,7 +32,7 @@ Battery.prototype.init = function(config) {
 
             // util.debug("RAW " + raw.value);
             var adcVoltage = (raw.value * MAX_ADC_VOLTAGE);
-            util.debug("Read " + adcVoltage + " volts");
+            // util.debug("Read " + adcVoltage + " volts");
             
             self.currentVoltage = adcVoltage * self.divisor;
             // util.debug("Battery is at " + self.currentVoltage + " volts");

@@ -1,0 +1,37 @@
+<!DOCTYPE html>  
+<html lang="en">  
+  <head>
+    <meta charset="utf-8">
+    <title>Server browser</title>
+    <style type="text/css">
+    body
+    {
+        font-family: sans-serif;
+        font-size: 2rem;
+    }
+    #info
+    {
+      margin-bottom: 2rem;
+    }
+    .light-text
+    {
+      color: #848484;
+    }
+    </style>
+  </head>
+  <body>
+    <div id="info">
+      <span class="light-text">Scraping server</span> <%= host %>:<%= port %>
+    </div>
+    <div id="content">
+      <% for (var motor in data.motors) { %>
+        <div class="motor">
+          <span class="light-text">Motor <%= motor %> speed is</span> <span class="motor-speed"><%= data.motors[motor].speed %></span>
+        </div>
+      <% } %>
+      <div class="battery">
+        <span class="light-text">Current battery voltage measured:</span> <span class="battery"><%= data.battery.toFixed(2) %></span>
+      </div>
+    </div>
+  </body>
+</html>  

@@ -3626,7 +3626,7 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 <part name="JP3" library="SparkFun-Connectors" deviceset="M02" device="2.54MM_SCREWTERM"/>
 <part name="C2" library="SparkFun-Capacitors" deviceset="0.1UF-25V(+80/-20%)(0603)" device="" value="0.1uF"/>
 <part name="C3" library="SparkFun-Capacitors" deviceset="0.1UF-25V(+80/-20%)(0603)" device="" value="0.1uF"/>
-<part name="C4" library="SparkFun-Capacitors" deviceset="10UF-25V-20%(PTH)" device="KIT"/>
+<part name="C4" library="SparkFun-Capacitors" deviceset="10UF-25V-20%(PTH)" device="KIT" value="10uF, 20V"/>
 <part name="GND19" library="SparkFun-Aesthetics" deviceset="DGND" device=""/>
 <part name="GND22" library="SparkFun-Aesthetics" deviceset="DGND" device=""/>
 <part name="GND20" library="SparkFun-Aesthetics" deviceset="DGND" device=""/>
@@ -4326,20 +4326,6 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 <label x="106.68" y="226.06" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$6" class="0">
-<segment>
-<pinref part="U$1" gate="P9" pin="GPIO_48"/>
-<wire x1="55.88" y1="223.52" x2="43.18" y2="223.52" width="0.1524" layer="91"/>
-<label x="38.1" y="223.52" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="N$7" class="0">
-<segment>
-<pinref part="U$1" gate="P9" pin="GPIO_31"/>
-<wire x1="55.88" y1="226.06" x2="43.18" y2="226.06" width="0.1524" layer="91"/>
-<label x="38.1" y="226.06" size="1.778" layer="95"/>
-</segment>
-</net>
 <net name="N$8" class="0">
 <segment>
 <pinref part="U2" gate="G$1" pin="OUT"/>
@@ -4365,6 +4351,11 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 </nets>
 </sheet>
 </sheets>
+<errors>
+<approved hash="113,1,50.1227,106.875,JP1,,,,,"/>
+<approved hash="113,1,90.7627,106.875,JP2,,,,,"/>
+<approved hash="113,1,128.863,106.875,JP3,,,,,"/>
+</errors>
 </schematic>
 </drawing>
 </eagle>

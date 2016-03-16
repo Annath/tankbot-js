@@ -3744,7 +3744,7 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 <instance part="U2" gate="G$1" x="355.6" y="256.54"/>
 <instance part="U3" gate="G$1" x="350.52" y="180.34"/>
 <instance part="GND11" gate="G$1" x="355.6" y="149.86"/>
-<instance part="JP1" gate="G$1" x="45.72" y="104.14"/>
+<instance part="JP1" gate="G$1" x="38.1" y="104.14"/>
 <instance part="SUPPLY10" gate="G$1" x="58.42" y="109.22"/>
 <instance part="SUPPLY11" gate="G$1" x="327.66" y="266.7"/>
 <instance part="SUPPLY12" gate="G$1" x="327.66" y="193.04"/>
@@ -3947,7 +3947,7 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 <segment>
 <pinref part="JP1" gate="G$1" pin="1"/>
 <pinref part="GND15" gate="G$1" pin="GND"/>
-<wire x1="53.34" y1="104.14" x2="58.42" y2="104.14" width="0.1524" layer="91"/>
+<wire x1="45.72" y1="104.14" x2="58.42" y2="104.14" width="0.1524" layer="91"/>
 <wire x1="58.42" y1="104.14" x2="58.42" y2="101.6" width="0.1524" layer="91"/>
 </segment>
 <segment>
@@ -4119,7 +4119,7 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 <pinref part="SUPPLY10" gate="G$1" pin="V_BATT"/>
 <wire x1="58.42" y1="109.22" x2="58.42" y2="106.68" width="0.1524" layer="91"/>
 <pinref part="JP1" gate="G$1" pin="2"/>
-<wire x1="58.42" y1="106.68" x2="53.34" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="58.42" y1="106.68" x2="45.72" y2="106.68" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U3" gate="G$1" pin="VIN"/>

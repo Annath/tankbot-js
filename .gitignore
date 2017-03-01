@@ -70,3 +70,8 @@ eagle.epf
 *.info
 
 *.eps
+
+.devices/
+.registry/
+.peers/
+*.swp
